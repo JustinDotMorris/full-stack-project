@@ -22,6 +22,7 @@ public class PlantFinderService {
     public List<Plant> getAllPlants(){
         return plantFinderRepository.findAll();
     }
+
     public Plant getPlantById(long id){
         Optional<Plant> plant = plantFinderRepository.findById(id);
         return plant.get();

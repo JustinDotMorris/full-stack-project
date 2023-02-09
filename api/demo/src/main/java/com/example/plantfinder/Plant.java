@@ -11,7 +11,6 @@ import java.time.LocalDate;
 public class Plant {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-
     private long id;
     private String createdBy;
     private LocalDate dateCreated = LocalDate.now();
