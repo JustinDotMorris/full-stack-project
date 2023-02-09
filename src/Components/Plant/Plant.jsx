@@ -1,3 +1,4 @@
+import "./Plant.scss";
 const Plant = ({ plant }) => {
   const {
     commonName,
@@ -10,8 +11,8 @@ const Plant = ({ plant }) => {
     createdBy,
   } = plant;
   return (
-    <div>
-      <h3>{commonName}</h3>
+    <div className="plant">
+      <h2>{commonName}</h2>
       <h4>
         {genus} {species}
       </h4>

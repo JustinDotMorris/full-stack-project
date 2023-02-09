@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import PlantList from "../../Components/PlantList/PlantList";
+import "./ViewPlants.scss";
 
 const ViewPlants = () => {
   const [plants, setPlants] = useState([]);
@@ -16,13 +17,14 @@ const ViewPlants = () => {
   }, []);
 
   return (
-    <div>
-      <h3>All Plants</h3>
+    <div className="view-plants">
+      <h1>All Plants</h1>
       <Link className="nav__item" to="/plant/create">
         <button>Add a Plant</button>
       </Link>
-
-      <PlantList plants={plants} />
+      <div className="view-plants--all-container">
+        <PlantList plants={plants} />
+      </div>
     </div>
   );
 };

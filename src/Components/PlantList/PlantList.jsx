@@ -2,7 +2,6 @@ import Plant from "../Plant/Plant";
 import { Link } from "react-router-dom";
 
 const PlantList = ({ plants }) => {
-  console.log(plants);
   return (
     <div>
       {plants.map((plant) => (
