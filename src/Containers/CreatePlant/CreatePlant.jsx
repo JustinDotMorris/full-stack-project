@@ -1,6 +1,9 @@
+import { Route, Routes, useNavigate } from "react-router-dom";
 import Form from "../../Components/Form/Form";
+// import {Route,Routes,useNavigate} from 'react-router-dom';
 
 const CreatePlant = () => {
+  const navigate = useNavigate();
   const handleSubmit = async (plant) => {
     const result = await fetch("http://localhost:8080/plant", {
       method: "POST",
@@ -9,6 +12,13 @@ const CreatePlant = () => {
       },
       body: JSON.stringify(plant),
     });
+    if (result.ok) {
+      alert("Plant Added");
+      navigate("/plant", { replace: true });
+    } else {
+      const message = await result.text();
+      alert(message);
+    }
   };
 
   const defaultFormState = {
@@ -24,7 +34,6 @@ const CreatePlant = () => {
 
   return (
     <div>
-      <h2>Add a plant</h2>
       <Form
         handleSubmit={handleSubmit}
         defaultFormState={defaultFormState}

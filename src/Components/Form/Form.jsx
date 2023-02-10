@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./Form.scss";
 
 const Form = ({ handleSubmit, formTitle }, defaultFormState) => {
   //form state taken from the edit plant
@@ -17,7 +18,7 @@ const Form = ({ handleSubmit, formTitle }, defaultFormState) => {
   };
 
   return (
-    <div>
+    <div className="form-container">
       <h2 className="form-container__title">{formTitle}</h2>
       <form className="form-container__form" onSubmit={handleValidation}>
         <input
@@ -32,7 +33,7 @@ const Form = ({ handleSubmit, formTitle }, defaultFormState) => {
         <input
           className="form-container__input"
           type="text"
-          placeholder="common name..."
+          placeholder="Common name..."
           value={plant.commonName}
           onInput={(event) =>
             setPlant({ ...plant, commonName: event.target.value })
@@ -41,14 +42,14 @@ const Form = ({ handleSubmit, formTitle }, defaultFormState) => {
         <input
           className="form-container__input"
           type="text"
-          placeholder="genus..."
+          placeholder="Genus..."
           value={plant.genus}
           onInput={(event) => setPlant({ ...plant, genus: event.target.value })}
         />
         <input
           className="form-container__input"
           type="text"
-          placeholder="species..."
+          placeholder="Species..."
           value={plant.species}
           onInput={(event) =>
             setPlant({ ...plant, species: event.target.value })
@@ -57,7 +58,7 @@ const Form = ({ handleSubmit, formTitle }, defaultFormState) => {
         <input
           className="form-container__input"
           type="text"
-          placeholder="leafColour"
+          placeholder="Leaf Colour..."
           value={plant.leafColour}
           onInput={(event) =>
             setPlant({ ...plant, leafColour: event.target.value })
@@ -66,7 +67,7 @@ const Form = ({ handleSubmit, formTitle }, defaultFormState) => {
         <input
           className="form-container__input"
           type="text"
-          placeholder="flower colour..."
+          placeholder="Flower colour..."
           value={plant.flowerColour}
           onInput={(event) =>
             setPlant({ ...plant, flowerColour: event.target.value })
@@ -75,7 +76,7 @@ const Form = ({ handleSubmit, formTitle }, defaultFormState) => {
         <input
           className="form-container__input"
           type="text"
-          placeholder="height"
+          placeholder="Height..."
           value={plant.height}
           onInput={(event) =>
             setPlant({ ...plant, height: event.target.value })
@@ -84,7 +85,7 @@ const Form = ({ handleSubmit, formTitle }, defaultFormState) => {
         <input
           className="form-container__input"
           type="text"
-          placeholder="description"
+          placeholder="Description..."
           value={plant.description}
           onInput={(event) =>
             setPlant({ ...plant, description: event.target.value })

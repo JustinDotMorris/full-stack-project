@@ -14,7 +14,6 @@ const EditPlant = () => {
     const url = `http://localhost:8080/plant/${id}`;
     const response = await fetch(url);
     const plantData = await response.json();
-    console.log(plantData);
     setPlant(plantData);
   };
 
@@ -30,6 +29,14 @@ const EditPlant = () => {
       },
       body: JSON.stringify(updatedPlant),
     });
+
+    if (result.ok) {
+      alert("Plant updated");
+      setPlant(updatedPlant);
+    } else {
+      const message = await result.text();
+      alert(message);
+    }
   };
 
   const handleDeletePlant = async () => {
@@ -39,6 +46,14 @@ const EditPlant = () => {
         "Content-Type": "application/json",
       },
     });
+
+    if (result.ok) {
+      alert("Plant Deleted");
+      navigate("/plant", { replace: true });
+    } else {
+      const message = await result.text();
+      alert(message);
+    }
   };
 
   const handleShowForm = () => setShowForm(!showForm);
